@@ -1,4 +1,4 @@
-
+var fileManager;
 function loadFile() {
     var input, file, fr;
 
@@ -29,7 +29,16 @@ function loadFile() {
       if(lines){
         alert("Archivo cargado con éxito")
       }
-      var  manager = new FileManager(lines);
-      manager.printContent();
+      fileManager = new FileManager(lines);
+      fileManager.printContent();
     } 
+}
+
+function saveFile(){
+  if(fileManager != undefined){
+    fileManager.saveFile(fileManager.getContent(),"result","txt");
+  } else {
+    alert("Cargue un documento")
+  }
+  
 }
