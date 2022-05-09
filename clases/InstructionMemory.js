@@ -1,0 +1,5 @@
+class InstructionMemory{
+    constructor(){
+        
+    }
+}
