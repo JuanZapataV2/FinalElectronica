@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto</title>
 
-    
+
     <script src="clases/FileManager.js"></script>
     <script src="main.js"></script>
 
@@ -15,20 +16,145 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-    <h1>Hola isa :D </h1>
-    <div class="jumbotron">
-        Seleccione el archivo para compilar
-        <form id="file" name="file" enctype="multipart/form-data" method="post">
-            <fieldset>
-              <h2>Parse file</h2>
-               <input type='file' id='fileinput'>
-               <input type='button' id='btnLoad' value='Load' onclick='loadFile();'>
-            </fieldset>
-        </form>
+
+    <header class="jumbotron">
+        <div class="row">
+            <div class="col-6">
+                <h1>Digital Electronic Final Project</h1>
+                <p>With this program you will be ablo to see how a Harvard Architecture 
+                    works step by step. <br> You will aso be ablo to translate code from Asambler
+                    to Machine Lenguage.
+                </p>
+            </div>
+            <form id="file" name="file" enctype="multipart/form-data" method="post" class="ml-5">
+                <fieldset>
+                    <h2>Parse file</h2>
+                    <input type='file' id='fileinput' required>
+                    <input type='button' id='btnLoad' value='Load' onclick='loadFile();'>
+                </fieldset>
+            </form>
+        </div>
+        
+    </header>
+
+    <div class="container m-5">
+        <div class="row">
+
+            <div class="col-sm border border-5">
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <b>Memory</b>
+                    </div>
+                    <div class="col-sm border border-5">
+                        <b>Value</b>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <span>EAX</span>
+                    </div>
+                    <div class="col-sm border border-5">
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <span>EBX</span>
+                    </div>
+                    <div class="col-sm border border-5">
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <span>ECX</span>
+                    </div>
+                    <div class="col-sm border border-5">
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <span>EDX</span>
+                    </div>
+                    <div class="col-sm border border-5">
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <span>ESI</span>
+                    </div>
+                    <div class="col-sm border border-5">
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <span>EEX</span>
+                    </div>
+                    <div class="col-sm border border-5">
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <span>ESP</span>
+                    </div>
+                    <div class="col-sm border border-5">
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <span>EBP</span>
+                    </div>
+                    <div class="col-sm border border-5">
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <span>Variable A</span>
+                    </div>
+                    <div class="col-sm border border-5">
+                        <span>0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm border border-5 text-center align-middle">
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <b>Control Unit</b>
+                    </div>
+                </div>
+               <img src="C:\Users\Isabe\OneDrive\Documentos\GitHub\FinalElectronica\control_unit.jpg" style="height: 14rem;" class="mt-1">
+            </div>
+
+            <div class="col-sm border border-5">
+                <div class="row">
+                    <div class="col-sm border border-5">
+                        <b>Instructions</b>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+        <div class="row justify-content-end mt-4">
+            <button class="btn btn-danger" onclick="saveFile()">Crear Archivo</button>
+        
+        </div>
     </div>
-    
-    
-      <button class="btn btn-danger" onclick="saveFile()">Guardar archivo</button>
+
+
+
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
