@@ -1,0 +1,9 @@
+mov eax, variableA
+add eax, variableA
+sub eax, variableA
+mul variableA
+div variableA
+and eax, variableA
+or eax, variableA
+xor eax, variableA
+not variableA

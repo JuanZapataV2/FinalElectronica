@@ -1,10 +1,11 @@
 class FileManager {
   constructor(file) {
-    this.content = file;
+    this.content = Array.from(file.split("\r\n"));
   }
 
   printContent() {
     console.log(this.content);
+
   }
 
   getContent() {

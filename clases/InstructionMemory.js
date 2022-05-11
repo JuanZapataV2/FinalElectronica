@@ -1,6 +1,17 @@
 class InstructionMemory {
     constructor() {
+        this.position = 0;
+    }
 
+    nextInstruction(inst_array){
+        if(inst_array.length > this.position){
+            this.showNextInstruction(inst_array[this.position])
+            this.position = this.position + 1;
+        } else{
+            this.showNextInstruction("End of File")
+            this.position = this.position + 1;
+
+        }   
     }
 
     showNextInstruction(instruction) {

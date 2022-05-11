@@ -1,4 +1,6 @@
 var fileManager;
+var instMemory = new InstructionMemory();
+
 function loadFile() {
     var input, file, fr;
 
@@ -41,4 +43,9 @@ function saveFile(){
     alert("Cargue un documento")
   }
   
+}
+
+function loadNewInst(){
+  if(fileManager.content.length >= instMemory.position)
+    instMemory.nextInstruction(fileManager.content)
 }
