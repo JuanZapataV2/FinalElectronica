@@ -10,6 +10,8 @@ function instantiateAll(){
   loadDataInfo();
 
 }
+
+
 function loadFile() {
   var input, file, fr;
 
@@ -41,7 +43,7 @@ function loadFile() {
       alert("Archivo cargado con éxito")
     }
     fileManager.setContent(lines);
-    console.log(fileManager.getContent());
+    instMemory.setInstructions(fileManager.getContent());
   } 
 }
 
@@ -72,6 +74,8 @@ function loadDataInfo(){
     div3.className = 'col-sm border border-5';
 
     var span2 = document.createElement('span');
+    var id = key +"_value"
+    span2.setAttribute('id',id);
     span2.innerHTML = values.value;
 
     div2.appendChild(span);
@@ -84,6 +88,25 @@ function loadDataInfo(){
 
 function loadNewInst(){
   if(fileManager.content.length >= instMemory.position)
-  console.log(fileManager.getContent())
     instMemory.nextInstruction(fileManager.getContent())
+}
+
+function loadInstructions(){
+  var inst = instMemory.getInstructions();
+
+  inst.forEach(instruction =>{
+    let new_inst = document.createElement("div");
+        new_inst.classList.add("row");
+
+        let row = document.createElement("div");
+        row.classList.add("col-sm", "border", "border-5");
+
+        let text = document.createElement("span");
+        text.appendChild(document.createTextNode(instruction));
+
+        row.appendChild(text);
+        new_inst.appendChild(row);
+
+        document.getElementById('inst_memory').appendChild(new_inst)
+  });
 }

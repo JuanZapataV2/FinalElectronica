@@ -1,0 +1,5 @@
+#inst_memory{
+    overflow: scroll;
+    display: flexbox;
+    height: 300px;
+}

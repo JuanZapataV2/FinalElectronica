@@ -1,6 +1,15 @@
 class InstructionMemory {
     constructor() {
         this.position = 0;
+        this.instructions="";
+    }
+
+    setInstructions(inst){
+        this.instructions = inst;
+    }
+
+    getInstructions(){
+        return this.instructions;
     }
 
     nextInstruction(inst_array){
