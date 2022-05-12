@@ -14,7 +14,8 @@ class InstructionMemory {
 
     nextInstruction(inst_array){
         if(inst_array.length > this.position){
-            this.showNextInstruction(inst_array[this.position])
+            //this.showNextInstruction(inst_array[this.position])
+            this.highlightNextInstruction(this.position)
             this.position = this.position + 1;
         } else{
             this.showNextInstruction("End of File")
@@ -37,5 +38,11 @@ class InstructionMemory {
         new_inst.appendChild(row);
 
         document.getElementById('inst_memory').appendChild(new_inst)
+    }
+
+    highlightNextInstruction(instruction) {
+        var id= "inst_"+instruction;
+        let inst = document.getElementById(id);
+        inst.style.backgroundColor = "#00FF00";
     }
 }
