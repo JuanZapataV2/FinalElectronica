@@ -10,6 +10,7 @@
 
     <script src="clases/FileManager.js"></script>
     <script src="clases/InstructionMemory.js"></script>
+    <script src="clases/DataMemory.js"></script>
     <script src="main.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +18,7 @@
 
 </head>
 
-<body>
+<body onload="instantiateAll()">
 
     <header class="jumbotron">
         <div class="row">
@@ -51,78 +52,7 @@
                         <b>Value</b>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm border border-5">
-                        <span>EAX</span>
-                    </div>
-                    <div class="col-sm border border-5">
-                        <span>0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm border border-5">
-                        <span>EBX</span>
-                    </div>
-                    <div class="col-sm border border-5">
-                        <span>0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm border border-5">
-                        <span>ECX</span>
-                    </div>
-                    <div class="col-sm border border-5">
-                        <span>0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm border border-5">
-                        <span>EDX</span>
-                    </div>
-                    <div class="col-sm border border-5">
-                        <span>0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm border border-5">
-                        <span>ESI</span>
-                    </div>
-                    <div class="col-sm border border-5">
-                        <span>0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm border border-5">
-                        <span>EEX</span>
-                    </div>
-                    <div class="col-sm border border-5">
-                        <span>0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm border border-5">
-                        <span>ESP</span>
-                    </div>
-                    <div class="col-sm border border-5">
-                        <span>0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm border border-5">
-                        <span>EBP</span>
-                    </div>
-                    <div class="col-sm border border-5">
-                        <span>0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm border border-5">
-                        <span>Variable A</span>
-                    </div>
-                    <div class="col-sm border border-5">
-                        <span>0</span>
-                    </div>
-                </div>
+                
             </div>
 
             <div class="col-sm border border-5 text-center align-middle">
@@ -131,7 +61,7 @@
                         <b>Control Unit</b>
                     </div>
                 </div>
-               <img src="C:\Users\Isabe\OneDrive\Documentos\GitHub\FinalElectronica\control_unit.jpg" style="height: 14rem;" class="mt-1">
+               <img src="./control_unit.jpg" style="height: 14rem;" class="mt-1">
             </div>
 
             <div class="col-sm border border-5" id="inst_memory">

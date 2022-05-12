@@ -1,11 +1,11 @@
 class FileManager {
-  constructor(file) {
-    this.content = Array.from(file.split("\r\n"));
+  constructor() {
+    this.content="";
   }
 
-  printContent() {
-    console.log(this.content);
-
+  setContent(file){
+    this.content = Array.from(file.split("\r\n"));
+    return true;
   }
 
   getContent() {
@@ -32,4 +32,7 @@ class FileManager {
       }, 0);
     }
   }
+
+  
+
 }
