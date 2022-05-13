@@ -1,9 +1,9 @@
-mov eax, variableA
-add eax, variableA
-sub eax, variableA
-mul variableA
-div variableA
-and eax, variableA
-or eax, variableA
-xor eax, variableA
-not variableA
+MOV EAX, variableA
+ADD EAX, variableA
+SUB EAX, variableA
+MUL variableA
+DIV variableA
+AND EAX, variableA
+OR EAX, variableA
+XOR EAX, variableA
+NOT variableA

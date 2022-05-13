@@ -47,7 +47,7 @@ function loadFile() {
 
 function saveFile() {
   if (fileManager != undefined) {
-    fileManager.saveFile(fileManager.getContent(), "result", "txt");
+    fileManager.saveFile(fileManager.translateBinary(instMemory.data,dataMemory.data), "result", "txt");
   } else {
     alert("Cargue un documento");
   }

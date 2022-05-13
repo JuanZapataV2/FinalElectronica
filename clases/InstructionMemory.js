@@ -2,6 +2,16 @@ class InstructionMemory {
     constructor() {
         this.position = 0;
         this.instructions="";
+        this.data = new Map()
+        this.data.set('MOV', {id: "00000000", params: 2});
+        this.data.set('ADD', {id: "00000001", params: 2});
+        this.data.set('SUB', {id: "00000010", params: 2});
+        this.data.set('MUL', {id: "00000011", params: 1});
+        this.data.set('DIV', {id: "00000100", params: 1});
+        this.data.set('AND', {id: "00000101", params: 2});
+        this.data.set('OR', {id: "00000110", params: 2});
+        this.data.set('XOR', {id: "00000111", params: 2});
+        this.data.set('NOT', {id: "00001000", params: 1});
     }
 
     setInstructions(inst){
@@ -10,6 +20,10 @@ class InstructionMemory {
 
     getInstructions(){
         return this.instructions;
+    }
+
+    getData(){
+        return this.data;
     }
 
     nextInstruction(inst_array){

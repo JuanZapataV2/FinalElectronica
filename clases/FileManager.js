@@ -33,6 +33,18 @@ class FileManager {
     }
   }
 
+  translateBinary(instructionMap,dataMap){
+    var binaryFile = "";
+      this.content.forEach(element => {
+        let inst = Array.from(element.split(" "));
+        console.log(inst)
+        binaryFile += instructionMap.get(inst[0]).id;
+        for (let index = 1; index < inst.length; index++) {
+          binaryFile += dataMap.get(inst[index].replace(",", "")).id;
+        }
+      });
+      return binaryFile;
+  }
   
 
 }
