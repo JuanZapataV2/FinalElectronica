@@ -25,10 +25,68 @@ class DataMemory{
 
     setData(name,value){
         if (this.data.has(name)){
-            this.data[name].value = value
+            this.data.get(name).value = value
             return true
         }
         else 
             return false
+    }
+
+    setDataInMemory(name,value){
+        this.setData(name,value);
+        console.log(name+"_value")
+        var container = document.getElementById(name+"_value");
+        container.innerHTML = value;
+    }
+
+    // INSTR ES UN OBJETO
+    // {"instr":"ADD","first_value":"EAX","last_value":"3"}
+    chooseInstruction(line){
+        let pos_num;
+        //Si se paso una posicion y no un numero guarda el valor que haya en esa posicion
+        if(isNaN(line.last_value)){
+            pos_num = this.data.get(line.last_value).value;
+        } else {
+            pos_num = parseInt(line.last_value);
+        }
+
+        switch(line.instr) {
+            case "MOV":
+                this.setDataInMemory(this.data.get(line.first_value).value,pos_num)
+                break;
+
+            case "ADD":
+                let sum = this.data.get(line.first_value).value + pos_num
+                this.setDataInMemory(line.first_value,sum)
+                break;
+
+            case "SUB":
+                let rest = this.data.get(line.first_value).value - pos_num
+                this.setDataInMemory(line.first_value,rest)
+                break;
+
+            case "MUL":
+                let prod = this.data.get("EAX").value * pos_num
+                this.setDataInMemory("EDX",prod)
+                break;
+            case "DIV":
+                let div = this.data.get("EAX").value / pos_num
+                this.setDataInMemory("EDX",div)
+                break;
+            case "AND":
+              // code block
+              break;
+            case "OR":
+              // code block
+              break;
+            case "XOR":
+              // code block
+              break;
+            case "NOT":
+              // code block
+              break;
+            default:
+              // code block
+          }
     }
 }
