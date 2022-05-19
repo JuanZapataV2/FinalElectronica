@@ -3,3 +3,9 @@
     display: flexbox;
     height: 300px;
 }
+
+#data_memory{
+    overflow: scroll;
+    display: flexbox;
+    height: 300px;
+}

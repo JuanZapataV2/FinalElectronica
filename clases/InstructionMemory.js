@@ -12,6 +12,7 @@ class InstructionMemory {
         this.data.set('OR', {id: "00000110", params: 2});
         this.data.set('XOR', {id: "00000111", params: 2});
         this.data.set('NOT', {id: "00001000", params: 1});
+        this.data.set('VARIABLE', {id: "00001001", params: 1});
     }
 
     setInstructions(inst){

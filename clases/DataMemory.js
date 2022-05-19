@@ -1,5 +1,6 @@
 class DataMemory{
-    constructor(){
+    constructor(processor){
+        this.processor = processor;
         this.data = new Map()
         this.data.set('EAX', {id: "00000000", value: 0});
         this.data.set('EBX', {id: "00000001", value: 0});
@@ -37,6 +38,15 @@ class DataMemory{
         console.log(name+"_value")
         var container = document.getElementById(name+"_value");
         container.innerHTML = value;
+    }
+
+    addVariable(name,value){
+        let last  = Array.from(this.data.keys()).pop();
+        let last_id = this.data.get(last).id;
+        let id = this.processor.addBinary("01",String(last_id));
+        this.data.set(name, {id: String(id), value: value});
+        console.log(this.getData(name));
+        return true
     }
 
     // INSTR ES UN OBJETO

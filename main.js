@@ -1,13 +1,15 @@
+var processor;
 var fileManager;
 var instMemory;
 var dataMemory;
 var syntaxChecker;
 
 function instantiateAll() {
+  processor = new Processor();
   fileManager = new FileManager();
   instMemory = new InstructionMemory();
-  dataMemory = new DataMemory();
-  syntaxChecker = new SyntaxChecker(instMemory);
+  dataMemory = new DataMemory(processor);
+  syntaxChecker = new SyntaxChecker(instMemory, dataMemory);
   loadDataInfo();
 }
 
@@ -44,6 +46,11 @@ function loadFile() {
     instMemory.setInstructions(fileManager.getContent());
     loadInstructions();
     syntaxChecker.checkSyntax();
+    if(syntaxChecker.correct){
+      loadDataInfo();
+    } else {
+      alert("Hay errores en el archivo");
+    }
   }
 }
 
@@ -85,8 +92,11 @@ function loadDataInfo() {
 }
 
 function loadNewInst() {
-  if (fileManager.content.length >= instMemory.position)
+  if (fileManager.content.length >= instMemory.position && syntaxChecker.correct){
     instMemory.nextInstruction(fileManager.getContent());
+  } else if(!syntaxChecker.correct) {
+    alert("Corrija el archivo e inténtelo de nuevo")
+  }
 }
 
 function loadInstructions() {
