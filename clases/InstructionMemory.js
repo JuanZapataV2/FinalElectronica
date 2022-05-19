@@ -22,6 +22,10 @@ class InstructionMemory {
         return this.instructions;
     }
 
+    getInstruction(value){
+        return this.data.get(value);
+    }
+
     getData(){
         return this.data;
     }

@@ -1,12 +1,13 @@
 var fileManager;
 var instMemory;
 var dataMemory;
+var syntaxChecker;
 
 function instantiateAll() {
   fileManager = new FileManager();
   instMemory = new InstructionMemory();
   dataMemory = new DataMemory();
-
+  syntaxChecker = new SyntaxChecker(instMemory);
   loadDataInfo();
 }
 
@@ -42,6 +43,7 @@ function loadFile() {
     fileManager.setContent(lines);
     instMemory.setInstructions(fileManager.getContent());
     loadInstructions();
+    syntaxChecker.checkSyntax();
   }
 }
 

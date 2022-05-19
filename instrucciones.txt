@@ -7,3 +7,4 @@ AND EAX, variableA
 OR EAX, variableA
 XOR EAX, variableA
 NOT variableA
+variableB 0
