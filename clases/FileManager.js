@@ -5,6 +5,7 @@ class FileManager {
 
   setContent(file){
     this.content = Array.from(file.split("\r\n"));
+    this.content.pop();
     return true;
   }
 
@@ -38,9 +39,16 @@ class FileManager {
       this.content.forEach(element => {
         let inst = Array.from(element.split(" "));
         console.log(inst)
+        console.log("com"+inst[0])
         binaryFile += instructionMap.get(inst[0]).id;
         for (let index = 1; index < inst.length; index++) {
-          binaryFile += dataMap.get(inst[index].replace(",", "")).id;
+          if(!isNaN(inst[index])){
+            console.log("hu?"+inst[index])
+            var number = "00000000" + Number(inst[index]).toString(2)
+            binaryFile += number.slice(-8)
+          }else{
+            binaryFile += dataMap.get(inst[index].replace(",", "")).id;
+          }
         }
       });
       return binaryFile;

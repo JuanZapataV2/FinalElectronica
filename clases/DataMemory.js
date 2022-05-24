@@ -54,7 +54,7 @@ class DataMemory{
     chooseInstruction(line){
         let pos_num;
         //Si se paso una posicion y no un numero guarda el valor que haya en esa posicion
-        if(isNaN(line.last_value)){
+        if(!isNaN(line.last_value)){
             pos_num = this.data.get(line.last_value).value;
         } else {
             pos_num = parseInt(line.last_value);

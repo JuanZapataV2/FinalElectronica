@@ -10,7 +10,6 @@ function instantiateAll() {
   instMemory = new InstructionMemory();
   dataMemory = new DataMemory(processor);
   syntaxChecker = new SyntaxChecker(instMemory, dataMemory);
-  loadDataInfo();
 }
 
 function loadFile() {
