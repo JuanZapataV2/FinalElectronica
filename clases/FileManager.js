@@ -5,7 +5,6 @@ class FileManager {
 
   setContent(file){
     this.content = Array.from(file.split("\r\n"));
-    this.content.pop();
     return true;
   }
 
@@ -35,24 +34,51 @@ class FileManager {
   }
 
   translateBinary(instructionMap,dataMap){
+
     var binaryFile = "";
-      this.content.forEach(element => {
-        let inst = Array.from(element.split(" "));
-        console.log(inst)
-        console.log("com"+inst[0])
+    this.content.forEach(element => {
+      let inst = Array.from(element.split(" "));
+      if(instructionMap.get(inst[0])){
         binaryFile += instructionMap.get(inst[0]).id;
         for (let index = 1; index < inst.length; index++) {
           if(!isNaN(inst[index])){
-            console.log("hu?"+inst[index])
             var number = "00000000" + Number(inst[index]).toString(2)
             binaryFile += number.slice(-8)
           }else{
             binaryFile += dataMap.get(inst[index].replace(",", "")).id;
           }
         }
-      });
-      return binaryFile;
+      }else{
+          for (let index = 0; index < inst.length-1; index++) {
+            if(!isNaN(inst[index])){
+              var number = "00000000" + Number(inst[index]).toString(2)
+              binaryFile += number.slice(-8)
+            }else{
+              binaryFile += dataMap.get(inst[index]).id;
+            }
+          }
+      }
+    });
+    return binaryFile;
   }
-  
+
+  //{"instr":"ADD","first_value":"EAX","last_value":"3"}
+  insrtLine(inst){
+    console.log("inst"+inst)
+    var object;
+    let line = Array.from(inst.split(" "));
+    console.log("linel"+line.length)
+    if(line.length == 3){
+      object = {instr: line[0], first_value: (line[1].replace(",", "")), last_value: line[2]};
+    }
+    if(line.length == 2){
+      object = {instr:line[0], last_value:"3"};
+    }
+    console.log("ob"+object);
+    return object
+  }
+
 
 }
+
+

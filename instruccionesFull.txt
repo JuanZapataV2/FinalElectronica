@@ -1,0 +1,12 @@
+MOV variableA, 10
+MOV EAX, variableA
+ADD EAX, variableA
+SUB EAX, variableA
+MUL variableA
+DIV variableA
+AND EAX, variableA
+OR EAX, variableA
+XOR EAX, variableA
+NOT variableA
+variableB 0
+variableC 5

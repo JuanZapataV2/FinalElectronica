@@ -35,7 +35,6 @@ class DataMemory{
 
     setDataInMemory(name,value){
         this.setData(name,value);
-        console.log(name+"_value")
         var container = document.getElementById(name+"_value");
         container.innerHTML = value;
     }
@@ -45,16 +44,16 @@ class DataMemory{
         let last_id = this.data.get(last).id;
         let id = this.processor.addBinary("01",String(last_id));
         this.data.set(name, {id: String(id), value: value});
-        console.log(this.getData(name));
         return true
     }
 
     // INSTR ES UN OBJETO
     // {"instr":"ADD","first_value":"EAX","last_value":"3"}
     chooseInstruction(line){
+        console.log("line"+line)
         let pos_num;
         //Si se paso una posicion y no un numero guarda el valor que haya en esa posicion
-        if(!isNaN(line.last_value)){
+        if(isNaN(line.last_value)){
             pos_num = this.data.get(line.last_value).value;
         } else {
             pos_num = parseInt(line.last_value);
@@ -62,7 +61,7 @@ class DataMemory{
 
         switch(line.instr) {
             case "MOV":
-                this.setDataInMemory(this.data.get(line.first_value).value,pos_num)
+                this.setDataInMemory(line.first_value,pos_num)
                 break;
 
             case "ADD":
@@ -96,7 +95,7 @@ class DataMemory{
               // code block
               break;
             default:
-              // code block
+                this.setDataInMemory(line.instr,pos_num)
           }
     }
 }
