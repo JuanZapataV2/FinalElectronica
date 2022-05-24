@@ -43,14 +43,13 @@ class DataMemory{
         let last  = Array.from(this.data.keys()).pop();
         let last_id = this.data.get(last).id;
         let id = this.processor.addBinary("01",String(last_id));
-        this.data.set(name, {id: String(id), value: value});
+        this.data.set(name, {id: String(id), value: 0});
         return true
     }
 
     // INSTR ES UN OBJETO
     // {"instr":"ADD","first_value":"EAX","last_value":"3"}
     chooseInstruction(line){
-        console.log("line"+line)
         let pos_num;
         //Si se paso una posicion y no un numero guarda el valor que haya en esa posicion
         if(isNaN(line.last_value)){

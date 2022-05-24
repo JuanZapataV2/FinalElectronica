@@ -64,17 +64,14 @@ class FileManager {
 
   //{"instr":"ADD","first_value":"EAX","last_value":"3"}
   insrtLine(inst){
-    console.log("inst"+inst)
     var object;
     let line = Array.from(inst.split(" "));
-    console.log("linel"+line.length)
     if(line.length == 3){
       object = {instr: line[0], first_value: (line[1].replace(",", "")), last_value: line[2]};
     }
     if(line.length == 2){
-      object = {instr:line[0], last_value:"3"};
+      object = {instr:line[0], last_value:line[1]};
     }
-    console.log("ob"+object);
     return object
   }
 

@@ -92,7 +92,6 @@ function loadDataInfo() {
 
 function loadNewInst() {
   if (fileManager.content.length >= instMemory.position && syntaxChecker.correct){
-    console.log(instMemory.position +" "+fileManager.getContent()[instMemory.position])
     line = fileManager.insrtLine(fileManager.getContent()[instMemory.position]);
     dataMemory.chooseInstruction(line);
     instMemory.nextInstruction(fileManager.getContent());
